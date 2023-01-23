@@ -26,7 +26,7 @@ const main = async () => {
      .use(vhost('*.' + process.env.DOMAIN, subDomainRoutes));
 
   // error handler
-  app.use(function (err, req, res) {
+  app.use(function (err, req, res, next) {
     res.status(404).render('error', {
       title: 'Error',
       Domain: process.env.DOMAIN,
